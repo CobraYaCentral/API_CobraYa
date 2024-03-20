@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "e107339d-12b6-4aa9-9b6c-08d072cda6f6",
+		"name": "For Buyer Companies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "14031157-e107339d-12b6-4aa9-9b6c-08d072cda6f6"
+	},
+	"item": [
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Get token",
+					"id": "33dcb436-a14c-4788-802d-8ae79261146e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{SECRET_APIKEY}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{CY_URL}}/api/v1/token",
+							"host": [
+								"{{CY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "eb0c56f2-a843-4578-8fdc-911ae0943e6c",
+							"name": "Get token UMBRELLA BUYER",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{SECRET_APIKEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{CY_URL}}/api/v1/token",
+									"host": [
+										"{{CY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"id": "59ce79e5-167f-48e9-9dd6-127a7ff7db19",
+							"name": "Get token PROVEEDORES UNIDOS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{SECRET_APIKEY}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{CY_URL}}/api/v1/token",
+									"host": [
+										"{{CY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"token"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"id": "2e6b652d-94e9-4050-b5e6-9f8c5d58d618"
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "Get documents",
+					"id": "6c93c516-93c6-4029-9344-88cac2ea77c6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{CY_URL}}/api/v1/document?type=INVOICE&role=BUYER&status=UNPAID",
+							"host": [
+								"{{CY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "INVOICE"
+								},
+								{
+									"key": "role",
+									"value": "BUYER"
+								},
+								{
+									"key": "status",
+									"value": "UNPAID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add or update Documents",
+					"id": "121a4dc9-cebd-41b3-b892-a8a2f8d4351f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"typeDocument\": \"FACTURA\",\r\n        \"number\": \"E001-0000201\",\r\n        \"ruc\": \"20000000002\",\r\n        \"provider\": \"PROVEEDORES UNIDOS\",\r\n        \"comment\": \"COMPRA DE SUMINISTROS - 6\",\r\n        \"issuedate\": \"2023-08-23T00:00:00Z\",\r\n        \"currency\": \"USD\",\r\n        \"amount\": 3210,\r\n        \"IGV\": 577.8,\r\n        \"netincome\": 3787.8,\r\n        \"deductions\": -454.54,\r\n        \"discounts\": 0,\r\n        \"netoutcome\": 3333.26,\r\n        \"amountPaid\": 0,\r\n        \"paydate\": null,\r\n        \"paydatesCheduled\": \"2024-05-19T00:00:00Z\",\r\n        \"observations\": \"\",\r\n        \"status\": \"RECEIVED\",\r\n        \"enableDetraction\": false,\r\n        \"rucCreditor\": \"\"\r\n    },\r\n    {\r\n        \"typeDocument\": \"FACTURA\",\r\n        \"number\": \"E001-0000202\",\r\n        \"ruc\": \"20000000002\",\r\n        \"provider\": \"PROVEEDORES UNIDOS\",\r\n        \"comment\": \"COMPRA DE SUMINISTROS - 7\",\r\n        \"issuedate\": \"2023-08-22T00:00:00Z\",\r\n        \"currency\": \"USD\",\r\n        \"amount\": 128.52,\r\n        \"IGV\": 23.13,\r\n        \"netincome\": 151.65,\r\n        \"deductions\": 0,\r\n        \"discounts\": 0,\r\n        \"netoutcome\": 151.65,\r\n        \"amountPaid\": 0,\r\n        \"paydate\": null,\r\n        \"paydatesCheduled\": \"2024-04-20T00:00:00Z\",\r\n        \"observations\": \"\",\r\n        \"status\": \"PROGRAMMED\",\r\n        \"enableDetraction\": false,\r\n        \"rucCreditor\": \"\"\r\n    },\r\n    {\r\n        \"typeDocument\": \"FACTURA\",\r\n        \"number\": \"E001-0000203\",\r\n        \"ruc\": \"20000000002\",\r\n        \"provider\": \"PROVEEDORES UNIDOS\",\r\n        \"comment\": \"COMPRA DE SUMINISTROS - 8\",\r\n        \"issuedate\": \"2023-08-23T00:00:00Z\",\r\n        \"currency\": \"PEN\",\r\n        \"amount\": 7272.22,\r\n        \"IGV\": 1309,\r\n        \"netincome\": 8581.22,\r\n        \"deductions\": -1030,\r\n        \"discounts\": 0,\r\n        \"netoutcome\": 7551.22,\r\n        \"amountPaid\": 0,\r\n        \"paydate\": null,\r\n        \"paydatesCheduled\": \"2024-02-16T00:00:00Z\",\r\n        \"observations\": \"\",\r\n        \"status\": \"PROGRAMMED\",\r\n        \"enableDetraction\": false,\r\n        \"rucCreditor\": \"\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CY_URL}}/api/v1/document",
+							"host": [
+								"{{CY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"document"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "3d0b8b09-eb22-42b2-b1f9-7cc208bdd4c0"
+		},
+		{
+			"name": "Advance Requests",
+			"item": [
+				{
+					"name": "Get advance requests from sellers",
+					"id": "c2bc86ad-f1be-4c99-9e05-abe9e83e9c6f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CY_URL}}/api/v1/service/advancePayment/requestedBySellers",
+							"host": [
+								"{{CY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"service",
+								"advancePayment",
+								"requestedBySellers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Annull advance payment request",
+					"id": "b61a7ccb-f1ab-4587-8b64-5924e329fe8d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6042723328983040,\r\n    \"comments\": \"XXX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CY_URL}}/api/v1/service/advancePayment",
+							"host": [
+								"{{CY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"service",
+								"advancePayment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get annulled advance requests",
+					"id": "377399fb-3098-4474-ba4d-69912078a585",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{CY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CY_URL}}/api/v1/service/advancePayment/annulled?buyerGlobalId=PE.RUC.20000000001",
+							"host": [
+								"{{CY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"service",
+								"advancePayment",
+								"annulled"
+							],
+							"query": [
+								{
+									"key": "buyerGlobalId",
+									"value": "PE.RUC.20000000001"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "59ee5e06-8b9d-47fb-87f8-09ee59109ad8"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9082db74-d538-47b5-9b60-eb62c5720701",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "88e61e3d-5829-45f3-a523-803a2efee2c9",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9b80c67a-a1d3-4478-b666-6e65a6d50b0c",
+			"key": "CY_URL",
+			"value": "https://cobraya-integration.appspot.com",
+			"type": "string"
+		},
+		{
+			"id": "b97fdb01-6586-44d4-9fb7-beb89e2dd6ba",
+			"key": "CY_TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "c97083ab-0b4d-401c-92e8-2caed7348447",
+			"key": "SECRET_APIKEY",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
